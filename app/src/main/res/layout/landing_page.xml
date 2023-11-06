@@ -16,13 +16,13 @@
         android:background="#3F51B5"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/yourNotes"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/yourNotes"
+        android:id="@+id/button"
         android:layout_width="300dp"
         android:layout_height="80dp"
         android:text="YOUR NOTES"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.265" />
 
     <Button
-        android:id="@+id/addAClass"
+        android:id="@+id/button2"
         android:layout_width="300dp"
         android:layout_height="80dp"
         android:text="ADD A CLASS"
@@ -44,17 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yourNotes"
+        app:layout_constraintTop_toBottomOf="@+id/button"
         app:layout_constraintVertical_bias="0.125" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/crime_recycler_view"
-        android:layout_width="411dp"
-        android:layout_height="309dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yourNotes"
-        app:layout_constraintVertical_bias="0.6" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-

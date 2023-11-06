@@ -11,9 +11,17 @@
         android:label="CrimeListFragment"
         tools:layout="@layout/fragment_crime_list">
         <action
-            android:id="@+id/show_crime_detail"
-            app:destination="@id/crimeDetailFragment" />
+            android:id="@+id/show_notes_list"
+            app:destination="@id/notesListFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/notesListFragment"
+        android:name="com.bignerdranch.android.criminalintent.NotesListFragment"
+        android:label="NotesListFragment"
+        tools:layout="@layout/fragment_notes_list">
+    </fragment>
+
     <fragment
         android:id="@+id/crimeDetailFragment"
         android:name="com.bignerdranch.android.criminalintent.CrimeDetailFragment"

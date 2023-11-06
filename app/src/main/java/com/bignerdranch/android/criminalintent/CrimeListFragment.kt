@@ -7,6 +7,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -52,20 +53,16 @@ class CrimeListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                crimeListViewModel.crimes.collect { crimes ->
-                    binding.crimeRecyclerView.adapter =
-                        CrimeListAdapter(crimes) { crimeId ->
-                            findNavController().navigate(
-                                CrimeListFragmentDirections.showCrimeDetail(crimeId)
-                            )
-                        }
-                }
+        val notes = view.findViewById<Button>(R.id.yourNotes)
+        notes.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                findNavController().navigate(
+                    CrimeListFragmentDirections.showNotesList()
+                )
             }
-        }
-    }
+        })
 
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -100,9 +97,6 @@ class CrimeListFragment : Fragment() {
                 numFacesDetected = ""
             )
             crimeListViewModel.addCrime(newCrime)
-            findNavController().navigate(
-                CrimeListFragmentDirections.showCrimeDetail(newCrime.id)
-            )
         }
     }
 }
